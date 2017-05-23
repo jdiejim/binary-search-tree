@@ -1,7 +1,6 @@
 class BinaryTree {
   constructor(root = null) {
     this.root = root;
-    this.isPlaced = false;
   }
 
   push(node) {
@@ -10,12 +9,13 @@ class BinaryTree {
       return;
     }
     let current = this.root;
+    let isPlaced = false;
 
-    while (!this.isPlaced) {
+    while (!isPlaced) {
       if (current.data >= node.data) {
         if (!current.left) {
           current.setLeft(node);
-          this.isPlaced = true;
+          isPlaced = true;
         } else {
           current = current.left;
         }
@@ -30,7 +30,6 @@ class BinaryTree {
         }
       }
     }
-    this.isPlaced = false;
   }
 }
 
