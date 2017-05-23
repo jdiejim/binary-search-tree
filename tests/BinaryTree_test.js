@@ -77,8 +77,20 @@ describe('BinaryTree', () => {
       expect(tree.root.right.right).to.deep.equal(largerChild);
     });
 
-    it.skip('creates a tree structure wit.skiph multiple nodes', () => {
+    it('creates a tree structure wit.skiph multiple nodes', () => {
+      let rootNode = new Node(10);
+      let largeChild = new Node(12);
+      let largerChild = new Node(14);
+      let smallChild = new Node(8);
+      let smallerChild = new Node(7);
 
+      tree.push(rootNode);
+      tree.push(largeChild);
+      tree.push(largerChild);
+      tree.push(smallChild);
+      tree.push(smallerChild);
+      expect(tree.root.right.right).to.deep.equal(largerChild);
+      expect(tree.root.left.left).to.deep.equal(smallerChild);
     });
 
 });
