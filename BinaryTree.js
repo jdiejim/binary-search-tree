@@ -19,9 +19,7 @@ class BinaryTree {
         } else {
           current = current.left;
         }
-      }
-
-      if (current.data < node.data) {
+      } else {
         if (!current.right) {
           current.setRight(node);
           this.isPlaced = true;
@@ -29,6 +27,7 @@ class BinaryTree {
           current = current.right;
         }
       }
+
     }
   }
 }
