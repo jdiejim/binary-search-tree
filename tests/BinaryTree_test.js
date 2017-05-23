@@ -10,33 +10,71 @@ describe('BinaryTree', () => {
     tree = new BinaryTree();
   });
 
-  it.skip('should have a root node defaulted to null', () => {
-
+  it('should have a root node defaulted to null', () => {
+    expect(tree.root).to.equal(null);
   });
 
   describe('PUSH', () => {
-    it.skip('should be able to add a node to the Tree', () => {
+    let tree;
 
+    beforeEach(() => {
+      tree = new BinaryTree();
     });
 
-    it.skip('should move smaller data to the left', () => {
+    it('should be able to add a node to the Tree', () => {
+      let rootNode = new Node(10);
 
+      tree.push(rootNode);
+      expect(tree.root).to.deep.equal(rootNode);
     });
 
-    it.skip('should move larger data to the right', () => {
+    it('should move smaller data to the left', () => {
+      let rootNode = new Node(10);
+      let smallChild = new Node(8);
 
+      tree.push(rootNode);
+      tree.push(smallChild);
+      expect(tree.root.left).to.deep.equal(smallChild);
     });
 
-    it.skip('should add data equal to the rootNode to the left', () => {
+    it('should move larger data to the right', () => {
+      let rootNode = new Node(10);
+      let largeChild = new Node(12);
 
+      tree.push(rootNode);
+      tree.push(largeChild);
+      expect(tree.root.right).to.deep.equal(largeChild);
     });
 
-    it.skip('should continue adding smaller data to the left down the tree', () => {
+    it('should add data equal to the rootNode to the left', () => {
+      let rootNode = new Node(10);
+      let equalNode = new Node(10);
 
+      tree.push(rootNode);
+      tree.push(equalNode);
+      expect(tree.root.left).to.deep.equal(equalNode);
     });
 
-    it.skip('should continue adding larger data to the right down the tree', () => {
+    it('should continue adding smaller data to the left down the tree', () => {
+      let rootNode = new Node(10);
+      let smallChild = new Node(8);
+      let smallerChild = new Node(7);
 
+      tree.push(rootNode);
+      tree.push(smallChild);
+      tree.push(smallerChild);
+      expect(tree.root.left.left).to.deep.equal(smallerChild);
+    });
+
+    it('should continue adding larger data to the right down the tree', () => {
+      let rootNode = new Node(10);
+      let largeChild = new Node(12);
+      let largerChild = new Node(14);
+
+      tree.push(rootNode);
+      tree.push(largeChild);
+      tree.push(largerChild);
+      expect(tree.root.right.right).to.deep.equal(largerChild);
     });
 
     it.skip('creates a tree structure wit.skiph multiple nodes', () => {
@@ -154,7 +192,7 @@ describe('BinaryTree', () => {
   describe('DELETE', () => {
 
   })
-  
+
   describe('getCount', () => {
 
   });
